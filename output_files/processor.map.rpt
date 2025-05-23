@@ -1,0 +1,1291 @@
+Analysis & Synthesis report for processor
+Thu May 15 19:31:07 2025
+Quartus Prime Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: datapath:Datapath|memory:Memory
+ 13. Parameter Settings for User Entity Instance: datapath:Datapath|register_file:RegisterFile
+ 14. Parameter Settings for User Entity Instance: datapath:Datapath|ALU:ALU
+ 15. Parameter Settings for User Entity Instance: FSM:FiniteStateMachine
+ 16. Port Connectivity Checks: "FSM:FiniteStateMachine"
+ 17. Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H5"
+ 18. Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H4"
+ 19. Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H3"
+ 20. Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H2"
+ 21. Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H1"
+ 22. Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H0"
+ 23. Port Connectivity Checks: "datapath:Datapath"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu May 15 19:31:07 2025           ;
+; Quartus Prime Version              ; 24.1std.0 Build 1077 03/04/2025 SC Lite Edition ;
+; Revision Name                      ; processor                                       ;
+; Top-level Entity Name              ; processor                                       ;
+; Family                             ; MAX 10                                          ;
+; Total logic elements               ; 3,142                                           ;
+;     Total combinational functions  ; 1,756                                           ;
+;     Dedicated logic registers      ; 1,601                                           ;
+; Total registers                    ; 1601                                            ;
+; Total pins                         ; 65                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
+; UFM blocks                         ; 0                                               ;
+; ADC blocks                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; processor          ; processor          ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 14          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-14        ;   0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                       ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                         ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+; processor.v                      ; yes             ; User Verilog HDL File  ; C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 3,142          ;
+;                                             ;                ;
+; Total combinational functions               ; 1756           ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 1520           ;
+;     -- 3 input functions                    ; 89             ;
+;     -- <=2 input functions                  ; 147            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 1711           ;
+;     -- arithmetic mode                      ; 45             ;
+;                                             ;                ;
+; Total registers                             ; 1601           ;
+;     -- Dedicated logic registers            ; 1601           ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 65             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; processorCLOCK ;
+; Maximum fan-out                             ; 1569           ;
+; Total fan-out                               ; 11434          ;
+; Average fan-out                             ; 3.28           ;
++---------------------------------------------+----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                         ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                ; Entity Name   ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+---------------+--------------+
+; |processor                         ; 1756 (44)           ; 1601 (33)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 65   ; 0            ; 0          ; |processor                                                         ; processor     ; work         ;
+;    |FSM:FiniteStateMachine|        ; 38 (38)             ; 3 (3)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|FSM:FiniteStateMachine                                  ; FSM           ; work         ;
+;    |datapath:Datapath|             ; 1674 (82)           ; 1565 (33)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath                                       ; datapath      ; work         ;
+;       |ALU:ALU|                    ; 77 (77)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|ALU:ALU                               ; ALU           ; work         ;
+;       |IR:InstructionRegister|     ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|IR:InstructionRegister                ; IR            ; work         ;
+;       |MMIO:memoryMap|             ; 110 (68)            ; 76 (34)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap                        ; MMIO          ; work         ;
+;          |reg_HEX:H0|              ; 7 (0)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H0             ; reg_HEX       ; work         ;
+;             |hex7seg:SEG|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H0|hex7seg:SEG ; hex7seg       ; work         ;
+;          |reg_HEX:H1|              ; 7 (0)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H1             ; reg_HEX       ; work         ;
+;             |hex7seg:SEG|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H1|hex7seg:SEG ; hex7seg       ; work         ;
+;          |reg_HEX:H2|              ; 7 (0)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H2             ; reg_HEX       ; work         ;
+;             |hex7seg:SEG|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H2|hex7seg:SEG ; hex7seg       ; work         ;
+;          |reg_HEX:H3|              ; 7 (0)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H3             ; reg_HEX       ; work         ;
+;             |hex7seg:SEG|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H3|hex7seg:SEG ; hex7seg       ; work         ;
+;          |reg_HEX:H4|              ; 7 (0)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H4             ; reg_HEX       ; work         ;
+;             |hex7seg:SEG|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H4|hex7seg:SEG ; hex7seg       ; work         ;
+;          |reg_HEX:H5|              ; 7 (0)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H5             ; reg_HEX       ; work         ;
+;             |hex7seg:SEG|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|MMIO:memoryMap|reg_HEX:H5|hex7seg:SEG ; hex7seg       ; work         ;
+;       |PC:ProgramCounter|          ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|PC:ProgramCounter                     ; PC            ; work         ;
+;       |memory:Memory|              ; 1369 (1369)         ; 1408 (1408)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|memory:Memory                         ; memory        ; work         ;
+;       |register_file:RegisterFile| ; 36 (36)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |processor|datapath:Datapath|register_file:RegisterFile            ; register_file ; work         ;
++------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                      ;
++----------------------------------------------------+--------------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                        ; Free of Timing Hazards ;
++----------------------------------------------------+--------------------------------------------+------------------------+
+; datapath:Datapath|MMIO:memoryMap|DataOut[0]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; datapath:Datapath|MMIO:memoryMap|DataOut[1]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; datapath:Datapath|MMIO:memoryMap|DataOut[2]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; datapath:Datapath|MMIO:memoryMap|DataOut[3]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; datapath:Datapath|MMIO:memoryMap|DataOut[7]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; datapath:Datapath|MMIO:memoryMap|DataOut[6]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; datapath:Datapath|MMIO:memoryMap|DataOut[5]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; datapath:Datapath|MMIO:memoryMap|DataOut[4]        ; datapath:Datapath|MMIO:memoryMap|Selector8 ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                                            ;                        ;
++----------------------------------------------------+--------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++------------------------------------------+---------------------------------------------+
+; Register name                            ; Reason for Removal                          ;
++------------------------------------------+---------------------------------------------+
+; datapath:Datapath|N                      ; Merged with datapath:Datapath|ALU_RegIn[7]  ;
+; datapath:Datapath|memory:Memory|mem~1488 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1480 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1472 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1496 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1448 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1456 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1440 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1464 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1416 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1424 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1408 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1432 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1520 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1512 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1504 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1528 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1744 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1712 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1680 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1776 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1704 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1736 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1672 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1768 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1728 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1696 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1664 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1760 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1720 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1752 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1688 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1784 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1832 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1864 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1800 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1896 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1872 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1840 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1808 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1904 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1856 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1824 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1792 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1888 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1848 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1880 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1816 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1912 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1576 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1608 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1544 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1640 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1616 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1584 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1552 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1648 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1600 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1568 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1536 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1632 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1592 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1624 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1560 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1656 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2000 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1992 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1984 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2008 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1960 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1968 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1952 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1976 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1936 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1928 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1920 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1944 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2024 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2032 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2016 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2040 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1489 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1745 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1873 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1617 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2001 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1457 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1713 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1841 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1585 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1969 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1425 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1681 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1809 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1553 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1937 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1905 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1777 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1649 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1521 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2033 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1833 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1865 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1801 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1897 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1737 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1705 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1673 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1769 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1577 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1609 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1545 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1641 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1481 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1449 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1417 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1513 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1961 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1993 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1929 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2025 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1697 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1825 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1569 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1441 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1953 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1857 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1729 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1601 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1473 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1985 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1793 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1665 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1537 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1409 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1921 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1761 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1889 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1633 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1505 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2017 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1721 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1753 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1689 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1785 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1881 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1849 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1817 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1913 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1593 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1625 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1561 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1657 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1465 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1497 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1433 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1529 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2009 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1977 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1945 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2041 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1482 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1490 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1474 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1498 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1746 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1874 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1618 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2002 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1866 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1738 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1610 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1994 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1730 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1858 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1602 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1986 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1882 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1754 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1626 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2010 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1706 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1714 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1698 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1722 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1842 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1834 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1826 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1850 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1578 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1586 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1570 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1594 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1450 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1458 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1442 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1466 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1970 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1962 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1954 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1978 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1802 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1810 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1794 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1818 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1674 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1682 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1666 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1690 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1546 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1554 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1538 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1562 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1426 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1418 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1410 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1434 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1930 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1938 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1922 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1946 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1906 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1898 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1890 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1914 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1778 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1770 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1762 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1786 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1642 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1650 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1634 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1658 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1514 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2026 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1522 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2034 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1506 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2018 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1530 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2042 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1835 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1867 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1803 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1899 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1875 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1843 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1811 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1907 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1859 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1827 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1795 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1891 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1851 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1883 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1819 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1915 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1739 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1707 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1675 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1771 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1747 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1715 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1683 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1779 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1731 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1699 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1667 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1763 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1723 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1755 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1691 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1787 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1611 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1579 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1547 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1643 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1587 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1619 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1555 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1651 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1571 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1603 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1539 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1635 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1627 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1595 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1563 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1659 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1491 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2003 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1459 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1971 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1427 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1939 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1523 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2035 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1451 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1963 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1483 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1995 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1419 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1931 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1515 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2027 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1475 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1987 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1443 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1955 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1411 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1923 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1507 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2019 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1467 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1499 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1435 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1531 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2011 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1979 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1947 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2043 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1487 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1871 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1743 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1615 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1999 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1839 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1711 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1583 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1455 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1967 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1679 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1807 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1551 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1423 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1935 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1775 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1903 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1647 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1519 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2031 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1751 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1719 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1687 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1783 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1879 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1847 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1815 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1911 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1623 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1591 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1559 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1655 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1463 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1495 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1431 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1527 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2007 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1975 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1943 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2039 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1831 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1703 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1575 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1447 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1959 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1735 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1863 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1607 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1479 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1991 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1671 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1799 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1543 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1415 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1927 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1895 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1767 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1639 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1511 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2023 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1471 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1727 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1855 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1599 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1983 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1503 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1759 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1887 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1631 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2015 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1439 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1695 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1823 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1567 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1951 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1919 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1791 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1663 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1535 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2047 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1462 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1494 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1430 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1526 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1486 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1454 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1422 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1518 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1446 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1478 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1414 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1510 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1502 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1470 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1438 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1534 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1742 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1750 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1734 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1758 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1878 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1870 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1862 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1886 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1622 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1614 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1606 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1630 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1998 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2006 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1990 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2014 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1846 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1838 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1830 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1854 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1710 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1718 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1702 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1726 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1590 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1582 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1574 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1598 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1966 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1974 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1958 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1982 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1678 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1686 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1670 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1694 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1814 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1806 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1798 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1822 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1558 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1550 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1542 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1566 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1934 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1942 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1926 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1950 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1910 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1902 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1894 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1918 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1774 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1782 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1766 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1790 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1654 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1646 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1638 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1662 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2030 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2038 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2022 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2046 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1453 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1461 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1445 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1469 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1845 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1837 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1829 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1853 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1709 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1717 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1701 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1725 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1589 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1581 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1573 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1597 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1965 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1973 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1957 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1981 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1749 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1741 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1733 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1757 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1869 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1877 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1861 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1885 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1621 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1613 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1605 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1629 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1493 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1485 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1477 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1501 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1997 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2005 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1989 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2013 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1805 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1813 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1797 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1821 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1677 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1685 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1669 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1693 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1549 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1557 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1541 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1565 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1429 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1421 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1413 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1437 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1933 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1941 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1925 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1949 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1525 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1517 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1509 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1533 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1901 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1773 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1645 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2029 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1781 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1909 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1653 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2037 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1765 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1893 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1637 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2021 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1917 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1789 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1661 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2045 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1740 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1708 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1676 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1772 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1748 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1716 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1684 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1780 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1732 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1700 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1668 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1764 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1756 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1724 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1692 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1788 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1876 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1844 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1812 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1908 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1836 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1868 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1804 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1900 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1860 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1828 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1796 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1892 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1852 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1884 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1820 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1916 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1612 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1580 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1548 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1644 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1588 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1620 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1556 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1652 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1572 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1604 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1540 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1636 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1628 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1596 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1564 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1660 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1492 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2004 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1460 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1972 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1428 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1940 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1524 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2036 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1452 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1964 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1484 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1996 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1420 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1932 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1516 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2028 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1476 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1988 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1444 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1956 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1412 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1924 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1508 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2020 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1468 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1980 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1500 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2012 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1436 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1948 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~1532 ; Stuck at GND due to stuck port clock_enable ;
+; datapath:Datapath|memory:Memory|mem~2044 ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 641  ;                                             ;
++------------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1601  ;
+; Number of registers using Synchronous Clear  ; 32    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1523  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |processor|datapath:Datapath|dataAr[3]                ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |processor|datapath:Datapath|dataBr[6]                ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |processor|counter[0]                                 ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |processor|FSM:FiniteStateMachine|Mux12               ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |processor|FSM:FiniteStateMachine|Mux14               ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |processor|datapath:Datapath|Mux1                     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |processor|datapath:Datapath|MemOut[3]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |processor|datapath:Datapath|Mux5                     ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |processor|datapath:Datapath|ALU:ALU|Mux3             ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |processor|datapath:Datapath|ALU:ALU|Mux6             ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |processor|datapath:Datapath|ALU:ALU|Mux0             ;
+; 256:1              ; 6 bits    ; 1020 LEs      ; 30 LEs               ; 990 LEs                ; No         ; |processor|datapath:Datapath|MMIO:memoryMap|Selector3 ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 12 LEs               ; 328 LEs                ; No         ; |processor|datapath:Datapath|MMIO:memoryMap|Selector0 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:Datapath|memory:Memory ;
++----------------+------------------+------------------------------------------+
+; Parameter Name ; Value            ; Type                                     ;
++----------------+------------------+------------------------------------------+
+; INIT_FILE      ; machine_code.txt ; String                                   ;
++----------------+------------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:Datapath|register_file:RegisterFile ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; R0             ; 00    ; Unsigned Binary                                                  ;
+; R1             ; 01    ; Unsigned Binary                                                  ;
+; R2             ; 10    ; Unsigned Binary                                                  ;
+; R3             ; 11    ; Unsigned Binary                                                  ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:Datapath|ALU:ALU ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; ADD            ; 000   ; Unsigned Binary                               ;
+; SUB            ; 001   ; Unsigned Binary                               ;
+; OR             ; 010   ; Unsigned Binary                               ;
+; NAND           ; 011   ; Unsigned Binary                               ;
+; SHL            ; 100   ; Unsigned Binary                               ;
+; SHR            ; 101   ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FSM:FiniteStateMachine ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; IDLE           ; 000   ; Unsigned Binary                            ;
+; CYCLE1         ; 001   ; Unsigned Binary                            ;
+; CYCLE2         ; 010   ; Unsigned Binary                            ;
+; CYCLE3         ; 011   ; Unsigned Binary                            ;
+; CYCLE4         ; 100   ; Unsigned Binary                            ;
+; CYCLE5         ; 101   ; Unsigned Binary                            ;
+; ADD            ; 0100  ; Unsigned Binary                            ;
+; SUB            ; 0110  ; Unsigned Binary                            ;
+; NAND           ; 1000  ; Unsigned Binary                            ;
+; ORi            ; 111   ; Unsigned Binary                            ;
+; LOAD           ; 0000  ; Unsigned Binary                            ;
+; STORE          ; 0010  ; Unsigned Binary                            ;
+; BNZ            ; 1001  ; Unsigned Binary                            ;
+; BPZ            ; 0101  ; Unsigned Binary                            ;
+; BZ             ; 1010  ; Unsigned Binary                            ;
+; SHIFT          ; 011   ; Unsigned Binary                            ;
+; SLEFT          ; 1     ; Unsigned Binary                            ;
+; SRIGHT         ; 0     ; Unsigned Binary                            ;
+; J              ; 0001  ; Unsigned Binary                            ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FSM:FiniteStateMachine"                                                                  ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; currState ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; nextState ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; done      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H5" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H4" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H3" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H2" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H1" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:Datapath|MMIO:memoryMap|reg_HEX:H0" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; EN   ; Input ; Info     ; Stuck at VCC                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:Datapath"                                                                                                          ;
++----------------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; Port           ; Type    ; Severity         ; Details                                                                                                  ;
++----------------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; ALU_PC         ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; PC_Addr        ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; ADDR           ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; MemOut         ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; IR_A           ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; RAmux          ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; IR_B           ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; MDRout         ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; Imm4           ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; Imm5           ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; Imm2           ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; dataA          ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; dataB          ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; dataAr         ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; dataBr         ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; RegIn_W        ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; ALU_Ain        ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; ALU_Bin        ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; ALU_N          ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; ALU_Z          ; Output  ; Info             ; Explicitly unconnected                                                                                   ;
+; ALU_RegIn      ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; IOmemADDR      ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; IOmemData      ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                   ;
+; SW             ; Input   ; Info             ; Explicitly unconnected                                                                                   ;
+; KEYs           ; Input   ; Info             ; Explicitly unconnected                                                                                   ;
+; IOdataIn       ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; IOdataOut      ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; IOmemRead      ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; IOmemWrite     ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ActualMemADDR  ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ActualDataIn   ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ActualDataOut  ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ActualMemRead  ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; ActualMemWrite ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 65                          ;
+; cycloneiii_ff         ; 1601                        ;
+;     ENA               ; 1523                        ;
+;     SCLR              ; 32                          ;
+;     plain             ; 46                          ;
+; cycloneiii_lcell_comb ; 1756                        ;
+;     arith             ; 45                          ;
+;         2 data inputs ; 31                          ;
+;         3 data inputs ; 14                          ;
+;     normal            ; 1711                        ;
+;         1 data inputs ; 81                          ;
+;         2 data inputs ; 35                          ;
+;         3 data inputs ; 75                          ;
+;         4 data inputs ; 1520                        ;
+;                       ;                             ;
+; Max LUT depth         ; 12.00                       ;
+; Average LUT depth     ; 7.54                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+    Info: Processing started: Thu May 15 19:30:58 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processor -c processor
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Warning (10275): Verilog HDL Module Instantiation warning at processor.v(316): ignored dangling comma in List of Port Connections File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 316
+Info (12021): Found 12 design units, including 12 entities, in source file processor.v
+    Info (12023): Found entity 1: processor File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 1
+    Info (12023): Found entity 2: datapath File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 172
+    Info (12023): Found entity 3: MMIO File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 455
+    Info (12023): Found entity 4: FSM File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 541
+    Info (12023): Found entity 5: memory File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 750
+    Info (12023): Found entity 6: register_file File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 792
+    Info (12023): Found entity 7: PC File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 843
+    Info (12023): Found entity 8: IR File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 862
+    Info (12023): Found entity 9: ALU File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 894
+    Info (12023): Found entity 10: reg_LED File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 922
+    Info (12023): Found entity 11: reg_HEX File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 932
+    Info (12023): Found entity 12: hex7seg File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 944
+Warning (10236): Verilog HDL Implicit Net warning at processor.v(157): created implicit net for "enable" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 157
+Info (12127): Elaborating entity "processor" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at processor.v(157): object "enable" assigned a value but never read File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 157
+Warning (10036): Verilog HDL or VHDL warning at processor.v(41): object "LEDs" assigned a value but never read File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 41
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:Datapath" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 105
+Info (12128): Elaborating entity "PC" for hierarchy "datapath:Datapath|PC:ProgramCounter" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 253
+Info (12128): Elaborating entity "MMIO" for hierarchy "datapath:Datapath|MMIO:memoryMap" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 316
+Warning (10240): Verilog HDL Always Construct warning at processor.v(519): inferring latch(es) for variable "DataOut", which holds its previous value in one or more paths through the always construct File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[0]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[1]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[2]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[3]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[4]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[5]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[6]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (10041): Inferred latch for "DataOut[7]" at processor.v(519) File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+Info (12128): Elaborating entity "reg_HEX" for hierarchy "datapath:Datapath|MMIO:memoryMap|reg_HEX:H0" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 476
+Info (12128): Elaborating entity "hex7seg" for hierarchy "datapath:Datapath|MMIO:memoryMap|reg_HEX:H0|hex7seg:SEG" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 934
+Info (12128): Elaborating entity "memory" for hierarchy "datapath:Datapath|memory:Memory" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 327
+Warning (10850): Verilog HDL warning at processor.v(769): number of words (26) in memory file does not match the number of elements in the address range [0:255] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 769
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[0] = 00000110 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[1] = 01010110 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[2] = 10100110 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[3] = 11110110 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[4] = 00001111 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[5] = 10000100 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[6] = 00000110 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[7] = 11000111 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[8] = 00111011 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[9] = 01000010 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[10] = 01100100 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[11] = 00011010 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[12] = 11000001 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[13] = 00100100 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[14] = 11000000 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (10648): Verilog HDL Display System Task info at processor.v(771): mem[15] = 11100100 File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 771
+Info (12128): Elaborating entity "IR" for hierarchy "datapath:Datapath|IR:InstructionRegister" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 342
+Info (12128): Elaborating entity "register_file" for hierarchy "datapath:Datapath|register_file:RegisterFile" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 376
+Info (12128): Elaborating entity "ALU" for hierarchy "datapath:Datapath|ALU:ALU" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 430
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:FiniteStateMachine" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 137
+Warning (10270): Verilog HDL Case Statement warning at processor.v(676): incomplete case statement has no default case item File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 676
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Projects/DE10-Lite-Projects/SimProcV2/db/processor.ram0_memory_5896a733.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276013): RAM logic "datapath:Datapath|memory:Memory|mem" is uninferred because MIF is not supported for the selected family File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 763
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Projects/DE10-Lite-Projects/SimProcV2/db/processor.ram0_memory_5896a733.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[0] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[1] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[1] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[1] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[2] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[7] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[3] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[7] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[7] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[7] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[6] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[7] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[5] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[7] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Warning (13012): Latch datapath:Datapath|MMIO:memoryMap|DataOut[4] has unsafe behavior File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 519
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal datapath:Datapath|PC:ProgramCounter|PCout[7] File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 854
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Projects/DE10-Lite-Projects/SimProcV2/output_files/processor.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 11 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 2
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Projects/DE10-Lite-Projects/SimProcV2/processor.v Line: 3
+Info (21057): Implemented 3247 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 3182 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4900 megabytes
+    Info: Processing ended: Thu May 15 19:31:07 2025
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:18
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Projects/DE10-Lite-Projects/SimProcV2/output_files/processor.map.smsg.
+
+
