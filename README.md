@@ -1,4 +1,4 @@
-=# Simple Processor (SimProc)
+# Simple Processor (SimProc)
 
 SimProc is an 8-bit processor designed for educational purposes, featuring a simplified instruction set and memory-mapped I/O architecture.
 
