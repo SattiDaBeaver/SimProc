@@ -18,14 +18,16 @@ The SimProc instruction set consists of basic arithmetic, logical, and control f
 
 ## **Memory Operations (Load and Store)**
 
-| load rA, (rB) | Load from memory rB into rA | rA ← Mem[rB] |
+| **Instruction** | **Description** | **Operation** |
 | --- | --- | --- |
+| load rA, (rB) | Load from memory rB into rA | rA ← Mem[rB] |
 | store rA, (rB) | Store to memory rB from rA | Mem[rB] ← rA |
 
 ## Branch Operations
 
-| j imm4 | Jump relatively by imm4 | PC ← PC + SE(imm4) |
+| **Instruction** | **Description** | **Operation** |
 | --- | --- | --- |
+| j imm4 | Jump relatively by imm4 | PC ← PC + SE(imm4) |
 | bz imm4 | Branch relatively by imm4 if result of previous operation was zero | PC ← PC + SE(imm4)    if operation = 0 |
 | bnz imm4 | Branch relatively by imm4 if result of previous operation was not zero | PC ← PC + SE(imm4)    if operation **≠0** |
 | bpz imm4  | Branch relatively by imm4 if result of previous operation was positive | PC ← PC + SE(imm4)    if operation ≥ **0** |
